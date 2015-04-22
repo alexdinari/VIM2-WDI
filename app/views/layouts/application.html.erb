@@ -7,10 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<!-- My nav bar, with logo and sign up and login buttons -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+            <%= image_tag 'vimlogo.png', class: "logo" %>
+				<button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#login-modal">Login</button>
+				<button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#signup-modal">Signup</button>
+    </div> 
+  </div>
+</nav>
+
+<!-- Signup Modal -->
+<%= render 'users/signup_modal' %>
+
+<!-- Login Modal -->
+<%= render 'users/login_modal' %>
+
 
 <%= yield %>
-
-
 
 </body>
 </html>

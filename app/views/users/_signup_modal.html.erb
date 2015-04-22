@@ -1,0 +1,35 @@
+<!-- Signup Modal -->
+<div class="modal fade" id="signup-modal" tabindex="2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Signup for <%= image_tag 'vimlogo.png', class: "modallogo" %></h4>
+      </div>
+      <div class="modal-body">
+          <%= form_for(User.new) do | f | %>
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password %>
+            <%= f.password_field :password, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password %>
+            <%= f.password_field :password, class: 'form-control' %>
+          </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= f.submit "Sign Up", class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+</div>
