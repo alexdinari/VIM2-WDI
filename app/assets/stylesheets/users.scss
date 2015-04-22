@@ -1,3 +1,27 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.navbar {
+	height: 100px;
+	background-color: white;
+	border-bottom-style: 1px solid #8C8E90;
+
+}
+.logo {
+	height: 90px;
+	padding-top: 0px;
+}
+.main{
+	position: relative;
+	top: 120px;
+}
+
+#sidenav-bar {
+	height: 300px;
+	border-right-style: 10px solid #8C8E90;
+}
+
+.slidescreen {
+	padding-right: 200px;
+}
