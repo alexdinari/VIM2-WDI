@@ -14,8 +14,23 @@
             <%= image_tag 'vimlogo.png', class: "logo" %>
 				<button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#login-modal">Login</button>
 				<button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#signup-modal">Signup</button>
-    </div> 
+        <div class="container">
+            <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>" role="alert">
+            <%= value %>
+        </div>
+            <% end %>
+        </div>
+        <div class="pull-right ">
+          <% if current_user %>
+            <h1 class="signin">Signed in as <strong><%= current_user.name%></strong></h1>
+            <%= link_to "Logout", logout_path , class: "navbar-link btn btn-default navbar-btn "%>
+          <%else%>
+            <%= %>
+          <%end%>
+        </div> 
   </div>
+</div>
 </nav>
 
 <!-- Signup Modal -->
