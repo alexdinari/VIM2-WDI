@@ -40,7 +40,17 @@
 <!-- Login Modal -->
 <%= render 'users/login_modal' %>
 
-
+<div class="container-fluid main">
+  <div class="row">
+    <div class="col-md-4" id="sidenav-bar">
+      <div class="list-group">
+        <%= link_to "Home", root_path, class: "list-group-item" %>
+        <%= link_to "Marketplace", users_path, class: "list-group-item" %>
+        <%= link_to "About Vim", pages_path, class: "list-group-item" %>
+        <%= link_to "Contact Us", pages_path, class: "list-group-item" %>
+        <%= link_to "Become A VIM trainer", pages_path, class: "list-group-item" %>
+      </div>
+    </div>
 <%= yield %>
 
 </body>

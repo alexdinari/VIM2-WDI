@@ -13,7 +13,14 @@ class UsersController < ApplicationController
     end
   end
 
-  def marketplace
+  def index
+  	if params[:query] && params[:search]
+  		search_by = params[:search].to_sym
+    		query = params[:query]
+    		@user = User.where( " #{search_by}  LIKE '%#{query}%' ").page(params[:page])
+  	else
+  		@user = User.all.page(params[:page])
+  	end
   end
 
 private

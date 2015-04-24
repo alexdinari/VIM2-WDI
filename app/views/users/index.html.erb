@@ -1,22 +1,21 @@
-<!-- This is my side bar nav, this will be turned into a partial later on -->
-<div class="container-fluid main">
-	<div class="row">
-		<div class="col-md-4" id="sidenav-bar">
-			<div class="list-group">
-				  <a href="#" class="list-group-item">Home</a>
-				  <a href="#" class="list-group-item">Marketplace</a>
-				  <a href="#" class="list-group-item">About Vim</a>
-				  <a href="#" class="list-group-item">Contact Us</a>
-				  <a href="#" class="list-group-item">Become A Trainer</a>
-			</div>
-		</div>
-		<div class="container-fluid" id="slidescreen">
-			<div class="col-md-8">
-				<div class="jumbotron">
-	  				<h1>Welcome to Vim!</h1>
-	  				<p>...</p>
-	  				<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-				</div>
-			</div>
-	</div>
+<div class="container-fluid">
+<%= form_tag('users_path', method: :get) do %>
+<strong>Search Trainers by:</strong><%= select_tag "search" , options_for_select(["name"]) %>
+<%= text_field_tag :query %>
+<%= submit_tag "Search" %>
+<%end%>
+<%= paginate @user %>
+	<div class="col-md-8">
+		<table class="col-md-8 table table-striped ">
+		<% @user.each do |user| %>
+  		<%= cache user do %>
+	<tr class="hover" >
+		<td><%= user.picture %></td>
+		<td><%= user.name %></td>
+		<td><%= user.speciality %></td>
+		<td><%= user.price %></td>
+	</tr>
+  		<% end %>
+		<% end %>
+	</table>
 </div>
