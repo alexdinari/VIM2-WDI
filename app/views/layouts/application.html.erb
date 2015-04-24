@@ -14,14 +14,12 @@
             <%= image_tag 'vimlogo.png', class: "logo" %>
 				<button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#login-modal">Login</button>
 				<button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#signup-modal">Signup</button>
-        <div class="container">
             <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %> alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <%= value %>
         </div>
             <% end %>
-        </div>
         <div class="pull-right ">
           <% if current_user %>
             <h1 class="signin">Signed in as <strong><%= current_user.name%></strong></h1>

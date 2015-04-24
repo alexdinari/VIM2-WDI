@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id.to_s
       redirect_to('/')
     else
-      redirect_to('/signup')
+      redirect_to('/')
     end
   end
 
@@ -18,23 +18,23 @@ class UsersController < ApplicationController
   def index
   	if params[:query]
     		query = params[:query]
-    		@user = User.where( " name LIKE '%#{query}%' ").page(params[:page])
+    		@user = User.where( "name LIKE '%#{query}%'").where(trainer: true).page(params[:page])
   	else
   		@user = User.all.page(params[:page])
   	end
   end
 
   # This is my search functionality for sorting by price
-  def sortPrice
-  	if params[:query]
-  		@user = User.where( " price '%#{query}%' ").page(params[:page])
-  	else
-  		@user = User.all.page(params[:page])
-  	end
-  end
+  # def sortPrice
+  # 	if params[:query]
+  # 		@user = User.where( " price '%#{query}%' ").page(params[:page])
+  # 	else
+  # 		@user = User.all.page(params[:page])
+  # 	end
+  # end
 
 private
   def user_params
-    params.require(:user).permit(:name,:email,:password,:password_confirmation)
+    params.require(:user).permit(:name,:email,:password,:password_confirmation, :trainer, :bio)
   end
 end

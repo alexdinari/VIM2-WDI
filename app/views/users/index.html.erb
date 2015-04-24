@@ -18,13 +18,15 @@
 		</div>
 	<table class="col-md-8 table table-striped ">
 		<% @user.each do |user| %>
+		<% if user.trainer == true %>
   		<%= cache user do %>
-	<tr class="hover" >
-		<td><%= user.picture %></td>
-		<td><%= user.name %></td>
-		<td><%= user.speciality %></td>
-		<td><%= user.price %></td>
-	</tr>
+		<tr class="hover" >
+			<td><%= user.picture %></td>
+			<td><%= user.name %></td>
+			<td><%= user.speciality %></td>
+			<td><%= user.price %></td>
+		</tr>
+		<% end %>
   		<% end %>
 		<% end %>
 	</table>
