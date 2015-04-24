@@ -8,5 +8,7 @@ class PagesController < ApplicationController
 
 	def about	
 	end
-	
+
+	def betrainer
+	end	
 end

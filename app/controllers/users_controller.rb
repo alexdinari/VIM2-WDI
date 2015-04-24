@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 		@user = User.new
   	end
 
+  # This is my create method for creating a new user
   def create
    @user = User.new(user_params)
     if @user.save
@@ -13,18 +14,26 @@ class UsersController < ApplicationController
     end
   end
 
+  # This is my search functionality for searching by name
   def index
-  	if params[:query] && params[:search]
-  		search_by = params[:search].to_sym
+  	if params[:query]
     		query = params[:query]
-    		@user = User.where( " #{search_by}  LIKE '%#{query}%' ").page(params[:page])
+    		@user = User.where( " name LIKE '%#{query}%' ").page(params[:page])
+  	else
+  		@user = User.all.page(params[:page])
+  	end
+  end
+
+  # This is my search functionality for sorting by price
+  def sortPrice
+  	if params[:query]
+  		@user = User.where( " price '%#{query}%' ").page(params[:page])
   	else
   		@user = User.all.page(params[:page])
   	end
   end
 
 private
-
   def user_params
     params.require(:user).permit(:name,:email,:password,:password_confirmation)
   end

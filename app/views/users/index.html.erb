@@ -1,12 +1,22 @@
+<!-- This page is for my marketplace, trainers will be displayed here as well as being searchable -->
+
 <div class="container-fluid">
-<%= form_tag('users_path', method: :get) do %>
-<strong>Search Trainers by:</strong><%= select_tag "search" , options_for_select(["name"]) %>
-<%= text_field_tag :query %>
-<%= submit_tag "Search" %>
-<%end%>
 <%= paginate @user %>
-	<div class="col-md-8">
-		<table class="col-md-8 table table-striped ">
+	<div class="col-md-8" id="inline-searchbar">
+		<%= form_tag('/users', method: 'get') do %>
+		<p></p><%= text_field_tag :query %>
+		<%= submit_tag "Search" %> </p>
+		<%end%>
+		<div class="dropdown">
+  		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+    	Price
+    	<span class="caret"></span>
+  		</button>
+  		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    		<li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= options_for_select(["< $35", "< $45", "< $55", "< $65"]) %></a></li>
+  		</ul>
+		</div>
+	<table class="col-md-8 table table-striped ">
 		<% @user.each do |user| %>
   		<%= cache user do %>
 	<tr class="hover" >
@@ -18,4 +28,6 @@
   		<% end %>
 		<% end %>
 	</table>
+</div>
+</div>
 </div>
