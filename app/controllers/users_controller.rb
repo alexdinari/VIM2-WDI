@@ -23,6 +23,10 @@ class UsersController < ApplicationController
   		@user = User.all.page(params[:page])
   	end
   end
+  # This is my action for going to the trainers profile page
+  def trainerprofile
+    @user = User.find(params[:id])
+  end
 
   #This is my search functionality for sorting by price
   def sortPrice
