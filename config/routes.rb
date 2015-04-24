@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/betrainer' => 'pages#betrainer'
   post '/users' => 'users#create'
   post '/betrainer' => 'pages#create'
-
+  get '/users' =>
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'

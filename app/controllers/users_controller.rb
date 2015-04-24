@@ -24,14 +24,14 @@ class UsersController < ApplicationController
   	end
   end
 
-  # This is my search functionality for sorting by price
-  # def sortPrice
-  # 	if params[:query]
-  # 		@user = User.where( " price '%#{query}%' ").page(params[:page])
-  # 	else
-  # 		@user = User.all.page(params[:page])
-  # 	end
-  # end
+  #This is my search functionality for sorting by price
+  def sortPrice
+  	if params[:query]
+  		@user = User.where( " price '%#{query}%' ").page(params[:page])
+  	else
+  		@user = User.all.page(params[:page])
+  	end
+  end
 
 private
   def user_params
