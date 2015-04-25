@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#home'
 
-  get '/users/:id' => 'users#trainerprofile', as: :trainer
   # get '/users/:id' => 'users#show'
   get '/users' => 'users#index'
   get '/pages' => 'pages#about'
@@ -12,5 +11,6 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+  get '/users/:id' => 'users#show', as: :trainer
 
 end

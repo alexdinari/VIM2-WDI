@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   	end
   end
   # This is my action for going to the trainers profile page
-  def trainerprofile
+  def show
     @user = User.find(params[:id])
   end
 
@@ -39,6 +39,6 @@ class UsersController < ApplicationController
 
 private
   def user_params
-    params.require(:user).permit(:name,:email,:password,:password_confirmation, :trainer, :bio)
+    params.require(:user).permit(:name,:email,:password,:password_confirmation, :trainer, :bio, :price)
   end
 end
