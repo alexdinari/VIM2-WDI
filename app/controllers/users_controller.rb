@@ -19,10 +19,12 @@ class UsersController < ApplicationController
   	if params[:query]
     		query = params[:query]
     		@user = User.where( "name LIKE '%#{query}%'").where(trainer: true).page(params[:page])
+        # sortPrice
   	else
   		@user = User.all.page(params[:page])
   	end
   end
+
   # This is my action for going to the trainers profile page
   def show
     @user = User.find(params[:id])
@@ -30,7 +32,7 @@ class UsersController < ApplicationController
 
   #This is my search functionality for sorting by price
   def sortPrice
-  	if params[:query]
+  	if params[:price]
   		@user = User.where( " price '%#{query}%' ").page(params[:page])
   	else
   		@user = User.all.page(params[:page])

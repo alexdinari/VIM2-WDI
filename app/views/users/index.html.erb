@@ -4,23 +4,28 @@
 <%= paginate @user %>
 	<div class="col-md-8" id="inline-searchbar">
 		<%= form_tag('/users', method: 'get') do %>
-		<p></p><%= text_field_tag :query %>
-		<%= submit_tag "Search" %> </p>
-		<%end%>
-		<div class="dropdown">
+		<p><%= text_field_tag :query %></p>
+	<div class="dropdown">
   		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
     	Price
     	<span class="caret"></span>
   		</button>
   		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     		<li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= options_for_select(["< $35"]) %></a></li>
+    		<li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= options_for_select(["< $45"]) %></a></li>
+    		<li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= options_for_select(["< $55"]) %></a></li>
+    		<li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= options_for_select(["< $65"]) %></a></li>
   		</ul>
-		</div>
+	</div>
+		<%= submit_tag "Search" %> </p>
+		<%end%>
+		
 	<table class="col-md-8 table table-striped ">
 		<% @user.each do |user| %>
 		<% if user.trainer == true %>
   		<%= cache user do %>
 		<tr class="hover" >
+		<!-- Add buttons here for better UI -->
 			<td><%= user.picture %></td>
 			<td><%= link_to user.name, trainer_path(user) %></td>
 			<td><%= user.speciality %></td>
