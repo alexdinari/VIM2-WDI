@@ -9,7 +9,7 @@ class UsersController < ApplicationController
    @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id.to_s
-      redirect_to trainer_path(@user)
+      redirect_to user_path(@user)
     else
       flash[:danger] = "Looks like that didn't work"
       redirect_to('/')
@@ -21,11 +21,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
-     redirect_to (@user)
+    @user = current_user
+    if @user.update_attributes(edit_params)
+     redirect_to user_path(@user)
     else
-     flash[:alert] = @user.errors.full_messages
+     # flash[:alert] = @user.errors.full_messages
      render "edit"
     end
   end
@@ -48,13 +48,16 @@ class UsersController < ApplicationController
 
   # This is my action for deleting users
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-    redirect_to('/')
+    User.destroy(params[:id])
+    redirect_to root_path
   end
 
 private
   def user_params
     params.require(:user).permit(:name,:email,:password,:password_confirmation, :trainer, :bio, :price)
+  end
+
+  def edit_params
+    params.require(:user).permit(:name, :email, :bio, :price)
   end
 end

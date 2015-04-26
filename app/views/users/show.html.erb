@@ -5,6 +5,7 @@
 
 
 
-<%= link_to "Edit", edit_path(@user) %>
+<%= link_to "Edit", edit_user_path(@user) %>
+<%= link_to "Delete", :user, method: :delete, data: {confirm: "You sure bro?"} %></li>
 
 
