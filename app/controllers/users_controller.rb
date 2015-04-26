@@ -46,6 +46,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  # This is my action for deleting users
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to('/')
+  end
 
 private
   def user_params
