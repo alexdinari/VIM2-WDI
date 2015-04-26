@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   		user = User.find_by_email(params[:email])
      	if user && user.authenticate(params[:password])
 		    session[:user_id] = user.id
-		    redirect_to root_path
+		    redirect_to trainer_path(user)
 		else
 		    flash[:danger] = "Oops! Houston we have a problem!"
 		    redirect_to ('/')

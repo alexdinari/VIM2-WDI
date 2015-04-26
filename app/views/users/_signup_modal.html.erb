@@ -1,4 +1,4 @@
-<!-- Signup Modal -->
+<!-- Signup Modal for Clients -->
 <div class="modal fade" id="signup-modal" tabindex="2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -7,6 +7,7 @@
       </div>
       <div class="modal-body">
           <%= form_for(User.new) do | f | %>
+          <!-- This is what sets up my form to work only for clients -->
           <%= f.hidden_field :trainer, value: false %>
           <div class="form-group">
             <%= f.label :name %>
