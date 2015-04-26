@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_user, only: [:index]
 	def new
 		@user = User.new
   	end
@@ -8,12 +9,27 @@ class UsersController < ApplicationController
    @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id.to_s
-      redirect_to('/')
+      redirect_to root_path
     else
+      flash[:danger] = "Looks like that didn't work"
       redirect_to('/')
     end
   end
 
+  def trainerprof
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+     redirect_to profile_path(@user)
+    else
+     flash[:alert] = @user.errors.full_messages
+     render "trainerprof"
+    end
+  end
+ 
   # This is my search functionality for searching by name
   def index
   	if params[:query]

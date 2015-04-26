@@ -14,6 +14,9 @@
             <%= image_tag 'vimlogo.png', class: "logo" %>
 				<button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#login-modal">Login</button>
 				<button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#signup-modal">Signup</button>
+        <% if current_user %>
+        <%= link_to "My Account", users_path, class: "btn btn-default navbar-btn" %>
+        <% end %>
             <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %> alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -43,7 +46,9 @@
     <div class="col-md-4" id="sidenav-bar">
       <div class="list-group">
         <%= link_to "Home", root_path, class: "list-group-item" %>
+        <% if current_user %>
         <%= link_to "Marketplace", users_path, class: "list-group-item" %>
+        <% end %>
         <%= link_to "About Vim", pages_path, class: "list-group-item" %>
         <%= link_to "Contact Us", 'contact', class: "list-group-item" %>
         <%= link_to "Become A VIM trainer", betrainer_path, class: "list-group-item" %>

@@ -7,6 +7,7 @@
       </div>
       <div class="modal-body">
           <%= form_for(User.new) do | f | %>
+          <%= f.hidden_field :trainer, value: false %>
           <div class="form-group">
             <%= f.label :name %>
             <%= f.text_field :name, class: 'form-control' %>

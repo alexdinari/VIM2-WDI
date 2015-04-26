@@ -1,13 +1,14 @@
 class SessionsController < ApplicationController
 	
+	#This is my create method for a new session
 	def create
   		user = User.find_by_email(params[:email])
      	if user && user.authenticate(params[:password])
 		    session[:user_id] = user.id
-		    redirect_to('/')
+		    redirect_to root_path
 		else
 		    flash[:danger] = "Oops! Houston we have a problem!"
-		    redirect_to('/')
+		    redirect_to ('/')
 		end
  	end
 

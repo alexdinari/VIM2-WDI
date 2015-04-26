@@ -8,9 +8,14 @@ Rails.application.routes.draw do
   get '/betrainer' => 'pages#betrainer'
   post '/users' => 'users#create'
   post '/betrainer' => 'pages#create'
+  get '/users/:id/edit' => 'users#trainerprof', as: :profile
+  # post 'users/id' => 'users#trainerprof'
+  patch 'users/id' => 'users#update'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
+  post '/signup' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+
   get '/users/:id' => 'users#show', as: :trainer
 
 end
