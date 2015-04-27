@@ -11,7 +11,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-            <%= image_tag 'vimlogo.png', class: "logo" %>
+            <%= link_to image_tag('vimlogo.png', :class=> "logo"),root_path %>
 				<button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#login-modal">Login</button>
 				<button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#signup-modal">Signup</button>
             <% flash.each do |key, value| %>
@@ -47,7 +47,7 @@
         <%= link_to "Marketplace", users_path, class: "list-group-item" %>
         <% end %>
         <%= link_to "About Vim", pages_path, class: "list-group-item" %>
-        <%= link_to "Contact Us", 'contact', class: "list-group-item" %>
+        <%= link_to "Contact Us", '/contact', class: "list-group-item" %>
         <%= link_to "Become A VIM trainer", betrainer_path, class: "list-group-item" %>
       </div>
     </div>

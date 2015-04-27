@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-	before_action :require_user, except: [:home, :about, :betrainer]
+	before_action :require_user, except: [:home, :about, :contact, :betrainer]
 	def home
 	end
 
