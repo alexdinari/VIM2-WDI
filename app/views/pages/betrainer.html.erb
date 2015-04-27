@@ -1,10 +1,17 @@
+
+<!-- This is my trainer slide page -->
 <div class="container-fluid" id="slidescreen">
 			<div class="col-md-8">
 				<div class="jumbotron">
 	  				<h1>Be the trainer you want to be!</h1>
-	  				<p><%= render 'users/lorem_ipsum' %></p>
-	  				<button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#trainer-modal">Signup</button>
+
+	  					<!-- This renders my text in the box -->
+	  					<p><%= render 'users/lorem_ipsum' %></p>
+
+	  					<!-- This renders modal for signing up as a trainer -->
+	  					<button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#trainer-modal">Signup</button>
 	  				<%= render 'pages/trainersignup_modal' %>
+
 				</div>
 			</div>
 	</div>

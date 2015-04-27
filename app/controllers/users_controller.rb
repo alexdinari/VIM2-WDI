@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :require_user, only: [:index]
 	def new
 		@user = User.new
-  	end
+  end
 
   # This is my create method for creating a new user
   def create
@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     end
   end
 
+# This is my edit method for editing a new user
   def edit
     @user = User.find(params[:id])
   end
