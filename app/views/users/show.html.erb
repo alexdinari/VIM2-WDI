@@ -6,7 +6,7 @@
 
 
 <%= link_to "Edit", edit_user_path(@user) %>
-<% if @user.trainer == true %>
+<% if @user == current_user %>
 <%= link_to "Delete", @user, method: :delete, data: {confirm: "You sure bro?"} %>
 <% end %>
 
