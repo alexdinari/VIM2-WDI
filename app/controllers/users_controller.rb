@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(edit_params)
      redirect_to user_path(@user)
     else
-     # flash[:alert] = @user.errors.full_messages
+     flash[:alert] = @user.errors.full_messages
      render "edit"
     end
   end
@@ -48,7 +48,8 @@ class UsersController < ApplicationController
 
   # This is my action for deleting users
   def destroy
-    User.destroy(params[:id])
+    @user = User.find(params[:id])
+    @user.destroy
     redirect_to root_path
   end
 

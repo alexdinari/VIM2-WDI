@@ -23,15 +23,17 @@
 	<table class="col-md-8 table table-striped ">
 		<% @user.each do |user| %>
 		<% if user.trainer == true %>
-  		<%= cache user do %>
+
 		<tr class="hover" >
 		<!-- Add buttons here for better UI -->
+
 			<td><%= user.picture %></td>
-			<td><%= link_to user.name, user_path %></td>
+			<td><%= link_to user.name, user_path(@user) %></td>
 			<td><%= user.speciality %></td>
 			<td><%= user.price %></td>
+
 		</tr>
-		<% end %>
+		
   		<% end %>
 		<% end %>
 	</table>
