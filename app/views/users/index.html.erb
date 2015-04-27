@@ -1,14 +1,19 @@
 <!-- This page is for my marketplace, trainers will be displayed here as well as being searchable -->
 
-<div class="container-fluid">
-<%= paginate @user %>
-	<div class="col-md-8" id="inline-searchbar">
-		<%= form_tag('/users', method: 'get') do %>
+<div class="col-md-8 panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+  	<h3>Search for your next trainer here!</h3>
+  </div>
+  <div class="panel-body">
+    <%= form_tag('/users', method: 'get') do %>
 		<p><%= text_field_tag :query %></p>
 		<p><%= submit_tag "Search" %> </p>
 		<%end%>
-		
-	<table class="col-md-8 table table-striped ">
+		<span class="pull-right"><%= paginate @user %></span>
+  </div>
+
+<table class="col-md-8 table table-hover ">
 		<% @user.each do |user| %>
 		<% if user.trainer == true %>
 
@@ -17,8 +22,8 @@
 
 			<td><%= user.picture %></td>
 			<td><%= link_to user.name, user_path(user) %></td>
-			<td><%= user.speciality %></td>
-			<td><%= user.price %></td>
+			<td><%= user.email %></td>
+			<td><%= number_to_currency user.price %></td>
 
 		</tr>
 		
@@ -26,5 +31,6 @@
 		<% end %>
 	</table>
 </div>
+	
 </div>
 </div>

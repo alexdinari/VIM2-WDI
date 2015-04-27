@@ -12,4 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= require animate
  */
+
+ body {
+ 	font-family: 'Josefin Sans', sans-serif;
+ }
+

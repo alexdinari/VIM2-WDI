@@ -7,6 +7,12 @@
 	background-color: white;
 	border-bottom-style: 1px solid #8C8E90;
 
+#signed-in-as {
+	margin-right: 10px;
+	margin-top: 16px;
+	color: black;
+}
+
 }
 .logo {
 	height: 90px;
@@ -17,9 +23,17 @@
 	top: 120px;
 }
 
-#sidenav-bar {
-	height: 300px;
-	border-right-style: 10px solid #8C8E90;
+.list-group {
+	color: #EE302F;
+}
+
+.list-group-item {
+	height: 80px !important;
+	text-align: center;
+	color: #EE302F !important;
+	font-size: 20px;
+	font-family: 'Enriqueta', serif;
+	border-right-style: 10px solid #8C8E90 !important;
 }
 
 .slidescreen {
@@ -35,11 +49,15 @@
 }
 
 #signin-login {
-	float: right !important;
+	// float: right !important;
 	margin: 6px;
-	margin-top: 30px;
+	margin-top: 15px;
 }
 
 .jumbotron {
 	background-image: url"(/app/assets/images/Jumbotron.png";
+}
+
+td {
+	font-size: 20px;
 }

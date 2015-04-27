@@ -1,13 +1,22 @@
 <div class="col-md-8">
-	<h1> Hello, name is <%= @user.name %> </h1>
-	<p><%= number_to_currency @user.price %></p>
+	<div class="page-header">
+	  <h1><%= @user.name %> <small>ACE Certified Trainer</small></h1>
+	</div>
+	
+	<h3><%= number_to_currency @user.price %></h3>
+	<br>
+	<br>
+	<%= render 'users/lorem_ipsum' %>
+ 
+
+ <div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+   <%= link_to "Edit", edit_user_path(@user), class: "btn btn-default" %>
+  </div>
+  <div class="btn-group" role="group">
+   <%= link_to "Delete", @user, method: :delete, data: {confirm: "You sure bro?"}, class: "btn btn-default" %>
+  </div>
+
 </div>
-
-
-
-<%= link_to "Edit", edit_user_path(@user) %>
-<% if @user == current_user %>
-<%= link_to "Delete", @user, method: :delete, data: {confirm: "You sure bro?"} %>
-<% end %>
 
 

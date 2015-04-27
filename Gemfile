@@ -29,7 +29,7 @@ gem 'better_errors'
 gem 'figaro'
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem "animate-rails"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
